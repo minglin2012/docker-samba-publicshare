@@ -1,6 +1,7 @@
 # KYBERNA AG Samba Docker image
 
-This image is a fork of JensErat/docker-samba-publicshare
+This image is a fork of JensErat/docker-samba-publicshare.
+
 Changed the guest user to uid 1000 to work well with data from other containers.
 
 ## Usage
