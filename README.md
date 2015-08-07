@@ -8,17 +8,19 @@ Changed the guest user to uid 1000 to work well with data from other containers.
 
 To share a folder, bind it as a volume to the internal path `/srv` and expose the ports required by the SMB protocol. An example would be
 
-	docker run -d \
-		--publish 445:445 \
-		--publish 137:137 \
-		--publish 138:138 \
-		--publish 139:139 \
-		--volume /srv/samba:/srv \
-		kyberna/samba
+```bash
+docker run -d \
+	--publish 445:445 \
+	--publish 137:137 \
+	--publish 138:138 \
+	--publish 139:139 \
+	--volume /srv/samba:/srv \
+	kyberna/samba
+```
 
 Use the optional `workgroup` environment variable to set the workgroup:
 
-		--env workgroup=myworkgroup
+`--env workgroup=myworkgroup`
 
 The repository contains a wrapper script to easen up sharing folders, automatically exposing the ports as needed. Pass the path as first parameter (otherwise the working directory is shared), and optionally the work group as second parameter.
 
